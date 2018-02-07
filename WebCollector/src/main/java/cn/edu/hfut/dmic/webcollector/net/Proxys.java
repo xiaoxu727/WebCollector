@@ -34,13 +34,30 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * @author hu
+ * @author xuxingyuan
  */
 public class Proxys extends ArrayList<Proxy> {
     public static final Logger LOG=LoggerFactory.getLogger(Proxys.class);
 
     public static Random random = new Random();
-    
+
+
+    int maxSize = 10;
+
+    String redisKey = null;
+
+    public Proxys(String redisKey, int maxSize){
+        this.maxSize = maxSize;
+        this.redisKey = redisKey;
+    }
+    public Proxys(String redisKey){
+        this.redisKey = redisKey;
+    }
+
+    public Proxys(){
+
+    }
+
     public Proxy nextRandom(){
         if(this.size() >0){
             int r=random.nextInt(this.size());
@@ -69,7 +86,10 @@ public class Proxys extends ArrayList<Proxy> {
     }
 
     public Proxy pop(){
-        if(this.size() >0){
+        if(this.size() == 0 && redisKey != null){
+            addFromRedis(redisKey,maxSize);
+        }
+        if(this.size() > 0){
             int r=random.nextInt(this.size());
             Proxy proxy = this.get(r);
             this.remove(r);
@@ -119,4 +139,22 @@ public class Proxys extends ArrayList<Proxy> {
             }
         }
     }
+
+    public String getRedisKey() {
+        return redisKey;
+    }
+
+    public void setRedisKey(String redisKey) {
+        this.redisKey = redisKey;
+    }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public void setMaxSize(int maxSize) {
+        this.maxSize = maxSize;
+    }
+
+
 }

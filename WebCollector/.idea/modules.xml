@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/../PublicSentiment/PublicSentiment.iml" filepath="$PROJECT_DIR$/../PublicSentiment/PublicSentiment.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebCollector.iml" filepath="$PROJECT_DIR$/WebCollector.iml" />
       <module fileurl="file://$PROJECT_DIR$/../gsj-illegal/gsj-illegal.iml" filepath="$PROJECT_DIR$/../gsj-illegal/gsj-illegal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tianyancha/tianyancha.iml" filepath="$PROJECT_DIR$/../tianyancha/tianyancha.iml" />
     </modules>
   </component>
 </project>

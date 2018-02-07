@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Class-Path: .
-Main-Class: com.champion.data.crawler.GSJIllegal.prossesor.GsjIllegalC
+Main-Class: com.champion.data.crawler.GSJIllegal.processor.GsjIllegalC
  rawler
 

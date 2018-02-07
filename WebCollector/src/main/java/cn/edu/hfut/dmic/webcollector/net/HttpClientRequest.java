@@ -5,8 +5,10 @@ import cn.edu.hfut.dmic.webcollector.model.CrawlDatum;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
+import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -67,12 +69,14 @@ public class HttpClientRequest extends HttpRequest {
                 .setConnectionRequestTimeout(this.timeoutForConnect)
                 .setSocketTimeout(this.timeoutForRead)
                 .setProxy(httpHost)
+                .setCookieSpec(CookieSpecs.BEST_MATCH)
                 .build();
 
         CloseableHttpClient client = HttpClients.custom()
                 .setDefaultRequestConfig(config)
 //                .setRedirectStrategy(new LaxRedirectStrategy())
                 .build();
+
 
         HttpRequestBase method = null ;
 
